@@ -1,0 +1,9 @@
+<h1>Edit Todo</h1>
+<% @todo.errors.full_messages.each do |message| %>
+    <p class="yellow"><%= message %></p>
+<% end %>
+<%= form_tag("/todos/#{@todo.id}/update") do %>
+    <label>Todo</label>
+    <textarea rows="3" name="todo"><%= @todo.todo %></textarea>
+    <input type="submit" class="btn" value="Create !">
+<% end %>

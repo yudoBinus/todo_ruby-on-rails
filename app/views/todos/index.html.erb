@@ -1,0 +1,33 @@
+<h1>My Todo</h1>
+<h2>Create New Todo</h2>
+<% @todo.errors.full_messages.each do |message| %>
+    <p class="yellow"><%= message %></p>
+<% end %>
+<%= form_tag('/todos/new') do %>
+    <label>Todo</label>
+    <textarea rows="3" name="todo" placeholder="Create your todo"></textarea>
+    <input type="submit" class="btn" value="Create !">
+<% end %>
+
+<ul>
+    <% @todos.each do | todo |%>
+        <li>
+            <p><%= todo.todo %></p>
+            <div class="option">
+                <%= link_to("/todos/#{todo.id}/update_status", {method: "post"}) do %>
+                    <% if todo.status %>
+                        <i class="far fa-check-circle"></i>
+                    <% else %>
+                        <i class="far fa-circle"></i>
+                    <% end %>
+                <% end %>
+                <%= link_to("/todos/#{todo.id}/destroy", {method: "post"}) do %>
+                    <i class="fas fa-trash-alt"></i>
+                <% end %>
+                <%= link_to("/todos/#{todo.id}/update_form") do %>
+                    <i class="fas fa-edit"></i>
+                <% end %>
+            <div>
+        </li>
+    <% end %>
+</ul>
