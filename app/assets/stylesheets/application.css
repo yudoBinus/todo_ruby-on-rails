@@ -17,6 +17,7 @@
 body{
   background-color: #be4d25;
   text-align: center;
+  margin: 0;
 }
 
 .btn {
@@ -102,5 +103,13 @@ input {
 
 .yellow {
   color: yellow
+}
+
+.flash {
+  background-color: yellow;
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 3px;
 }
 
